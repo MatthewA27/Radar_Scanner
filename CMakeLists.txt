@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Radar_Scanner Radar_Scanner.c )
+add_executable(Radar_Scanner Radar_Scanner.c pico-ssd1306/ssd1306.c)
 
 pico_set_program_name(Radar_Scanner "Radar_Scanner")
 pico_set_program_version(Radar_Scanner "0.1")
@@ -46,10 +46,12 @@ pico_enable_stdio_usb(Radar_Scanner 1)
 
 # Add the standard library to the build
 target_link_libraries(Radar_Scanner
-        pico_stdlib)
+        pico_stdlib
+        hardware_pwm
+        hardware_i2c)
 
 # Add the standard include files to the build
-target_include_directories(Radar_Scanner PRIVATE
+target_include_directories(Radar_Scanner PRIVATE pico-ssd1306
         ${CMAKE_CURRENT_LIST_DIR}
 )
 
