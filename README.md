@@ -1,4 +1,4 @@
-# Rader Scanner
+# Radar Scanner
 
 <img src="Circuit.jpg">
 
